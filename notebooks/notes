@@ -1,0 +1,7 @@
+jupyter lab //odpala jupyter
+source /.venv/bin/activate
+pip3 freeze > requirements.txt
+
+
+WCZYTYWANIE DANYCH PICKLE, ZREDUKOWANYCH
+nowa_ramka = pd.read_pickle('nowa_ramka.pkl')
