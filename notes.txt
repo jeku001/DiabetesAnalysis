@@ -1,0 +1,10 @@
+dane sa z: https://www.kaggle.com/datasets/julnazz/diabetes-health-indicators-dataset
+
+warto spojrzec na: https://www.kaggle.com/datasets/akshaydattatraykhare/diabetes-dataset/code
+
+pomysly:
+- moze polaczyc jakos te 2 zbiory danych?
+co przewidzi jeden i z jakim prawdopodobienstwem a co drugi i jakos znormalizowac wynik?
+
+- wprowadzic logger pacjentow
+-

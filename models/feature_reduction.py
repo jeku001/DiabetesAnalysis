@@ -1,11 +1,10 @@
 import os
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from mlxtend.feature_selection import SequentialFeatureSelector
 import statsmodels.api as sm
+
 
 #specified file path to import
 filePath_df_012 = os.path.join('..', 'data', 'diabetes_012_health_indicators_BRFSS2021.csv')
@@ -17,42 +16,10 @@ df_012 = pd.read_csv(filePath_df_012)
 df_binary_5050 = pd.read_csv(filePath_df_binary_5050)
 df_binary = pd.read_csv(filePath_df_binary)
 
-#import reduced data from pickle
-df_012_reduced = pd.read_pickle('df_012_reduced.pkl')
-df_binary_reduced = pd.read_pickle('df_binary_reduced.pkl')
-df_binary_5050_reduced = pd.read_pickle('df_binary_5050_reduced.pkl')
-
-
-## wykres slupkowy liczebnosci
-"""
-labels = {0.0: 'No Diabetes', 1.0: 'Prediabetes', 2.0: 'Diabetes'}
-counts_types_012 = df_012['Diabetes_012'].map(labels).value_counts().reindex(['No Diabetes', 'Prediabetes', 'Diabetes'])
-plt.figure(figsize=(8, 5))
-counts_types_012.plot(kind='bar', color=['skyblue', 'salmon', 'lightgreen'])
-plt.title("Group size")
-plt.xlabel("")
-plt.ylabel("")
-plt.xticks(rotation=0)  # Opcjonalnie, aby wartości były wyświetlone poziomo
-plt.show()
-"""
-
-## wykres slupkowy liczebnosci - csv binary
-"""
-labels = {0.0: 'No Diabetes', 1.0: 'Diabetes'}
-counts_types_binary = df_binary['Diabetes_binary'].map(labels).value_counts().reindex(['No Diabetes', 'Diabetes'])
-plt.figure(figsize=(8, 5))
-counts_types_binary.plot(kind='bar', color=['skyblue', 'lightgreen'])
-plt.title("Group size")
-plt.xlabel("")
-plt.ylabel("")
-plt.xticks(rotation=0)  # Opcjonalnie, aby wartości były wyświetlone poziomo
-plt.show()
-"""
-
 
 ## regresyjna wsteczna eliminacja pozbede sie niepotrzebnych cech
 
-"""data = df_binary
+data = df_binary
 X = data.drop(columns=["Diabetes_binary"])  # Drop the target variable from features
 y = data["Diabetes_binary"]  # Target variable
 
@@ -65,7 +32,7 @@ linearreg = LinearRegression()
 forwad = SequentialFeatureSelector(
     linearreg,
     k_features=15,  # Number of features to keep
-    forward=True,
+    forward=False,
     verbose=1,
     scoring="neg_mean_squared_error"
 )
@@ -117,27 +84,4 @@ df_binary_5050_reduced = df_binary_5050.drop(columns=removed_feat_names)
 df_012_reduced.to_pickle('df_012_reduced.pkl')
 df_binary_reduced.to_pickle('df_binary_reduced.pkl')
 df_binary_5050_reduced.to_pickle('df_binary_5050_reduced.pkl')
-"""
-
-
-
-# BADAM CZY PREDIABETES I DIABETES SA TAKIE SAME
-
-# usuwanie NON DIABETES
-data = df_012_reduced[df_012_reduced['Diabetes_012'] != 0]  # Replace with your actual DataFrame name
-# ZAMIANA NA BINARNE BO LOGISTIC REGRESSION WYMAGA
-data['Diabetes_012'] = data['Diabetes_012'].replace({1: 0, 2: 1})
-
-X = data.drop('Diabetes_012', axis=1)
-y = data['Diabetes_012']
-
-# Dodanie stałej (intercept)
-X = sm.add_constant(X)
-
-# Dopasowanie modelu
-model = sm.Logit(y, X).fit()
-print(model.summary())
-
-## WNIOSKI - PREDIABETES I DIABETES JEDNAK SIE ROZNIA. NIE BEDE ICH WIEC LACZYC W JEDNO
-
 
