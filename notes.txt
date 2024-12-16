@@ -8,3 +8,8 @@ co przewidzi jeden i z jakim prawdopodobienstwem a co drugi i jakos znormalizowa
 
 - wprowadzic logger pacjentow
 -
+
+
+
+ankieta bez logowania
+dane medyczne po
