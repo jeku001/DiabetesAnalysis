@@ -29,7 +29,7 @@ if __name__ == "__main__":
     Age = int(input("Age (integer): "))
     Income = float(input("Income (1-8 scale): "))
 
-    app = DiabetesPredictionApp("logistic_model.pkl")
+    app = DiabetesPredictionApp("survey_model/logistic_model.pkl")
     input_data = [
         HighBP, HighChol, CholCheck, BMI, Smoker, Stroke,
         HeartDiseaseorAttack, PhysActivity, HvyAlcoholConsump, GenHlth,
