@@ -47,6 +47,7 @@ if __name__ == "__main__":
     else:
         raise ValueError("Invalid model type selected. Please choose 'survey' or 'medical'.")
 
+    # czy poprawny typ danych, dopuszcza pusta wartosc od uzytkownika i zmienia na NaN, modele toleruja te wartosc
     input_data = [float(x) if '.' in x or x in ['BMI', 'DiabetesPedigreeFunction'] else int(x) if x else np.nan for x in
                   input_data]
     print(input_data) #debug
