@@ -6,12 +6,10 @@ from mlxtend.feature_selection import SequentialFeatureSelector
 import statsmodels.api as sm
 
 
-#specified file path to import
 filePath_df_012 = os.path.join('../..', 'data', 'diabetes_012_health_indicators_BRFSS2021.csv')
 filePath_df_binary_5050 = os.path.join('../..', 'data', 'diabetes_binary_5050split_health_indicators_BRFSS2021.csv')
 filePath_df_binary = os.path.join('../..', 'data', 'diabetes_binary_health_indicators_BRFSS2021.csv')
 
-#import data
 df_012 = pd.read_csv(filePath_df_012)
 df_binary_5050 = pd.read_csv(filePath_df_binary_5050)
 df_binary = pd.read_csv(filePath_df_binary)

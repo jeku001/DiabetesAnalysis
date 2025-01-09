@@ -1,8 +1,11 @@
 import pandas as pd
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-class DiabetesDataAnalysis:
+
+class Desctibe_data:
     def __init__(self, file_path):
         self.data = pd.read_pickle(file_path)
 
@@ -27,7 +30,7 @@ class DiabetesDataAnalysis:
         plt.show()
 
 if __name__ == "__main__":
-    analysis = DiabetesDataAnalysis("df_binary_reduced.pkl")
+    analysis = Desctibe_data("processed_data.pkl")
     analysis.summary_statistics()
     analysis.missing_values()
     analysis.visualize_distribution()
