@@ -1,15 +1,6 @@
-import pickle
-import numpy as np
 
-class DiabetesPredictionApp:
-    def __init__(self, model_path):
-        with open(model_path, "rb") as file:
-            self.model = pickle.load(file)
+from survey_model.Predict import Predict
 
-    def predict(self, input_data):
-        input_array = np.array(input_data).reshape(1, -1)
-        prediction = self.model.predict(input_array)
-        return "Diabetes" if prediction[0] == 1 else "No Diabetes"
 
 if __name__ == "__main__":
     print("Provide the following information:")
@@ -29,12 +20,13 @@ if __name__ == "__main__":
     Age = int(input("Age (integer): "))
     Income = float(input("Income (1-8 scale): "))
 
-    app = DiabetesPredictionApp("survey_model/logistic_model.pkl")
     input_data = [
         HighBP, HighChol, CholCheck, BMI, Smoker, Stroke,
         HeartDiseaseorAttack, PhysActivity, HvyAlcoholConsump, GenHlth,
         MentHlth, DiffWalk, Sex, Age, Income
     ]
 
-    result = app.predict(input_data)
+    #
+    predictor = Predict(model_type='survey', input_data=input_data)
+    result = predictor.predict()
     print(f"Prediction Result: {result}")
