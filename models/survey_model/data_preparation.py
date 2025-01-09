@@ -20,7 +20,7 @@ def add_missing_data(df, fraction=0.5):
     rows_to_duplicate = np.random.choice(df.index, size=int(len(df) * fraction), replace=False)
     duplicated_rows = df.loc[rows_to_duplicate].copy()
 
-    columns_to_consider = df.columns.drop('Diabetes_binary')  # Wykluczenie kolumny 'Diabetes_binary'
+    columns_to_consider = df.columns.drop('Diabetes_binary')
 
     for row in duplicated_rows.index:
         num_cols = np.random.choice(range(2, 9))

@@ -1,10 +1,4 @@
 import pickle
-import warnings
-from sklearn.exceptions import DataConversionWarning
-
-# Ignorowanie specyficznych ostrzeżeń z sklearn
-warnings.filterwarnings(action='ignore', category=DataConversionWarning)
-
 
 class Predict:
     def __init__(self, model_type, input_data):
@@ -33,8 +27,7 @@ class Predict:
         try:
             if len(self.input_data) != 15:
                 raise ValueError("Input data must contain exactly 15 elements")
-            # Wynik predykcji jest teraz konwertowany do pojedynczej liczby
             prediction = self.model.predict([self.input_data])
-            return int(prediction[0])  # Zwraca wynik jako pojedynczą liczbę (0 lub 1)
+            return int(prediction[0])
         except Exception as e:
             raise Exception(f"An error occurred during prediction: {e}")
