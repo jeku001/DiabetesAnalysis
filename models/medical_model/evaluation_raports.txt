@@ -1,0 +1,15 @@
+Ewalucajca modelu regresyjnego bez przetwarzania danych:
+Evaluation Results: Accuracy = 0.79, Recall = 0.75, F1-Score = 0.76
+Evaluation Results: Accuracy = 0.73, Recall = 0.68, F1-Score = 0.68
+Evaluation Results: Accuracy = 0.81, Recall = 0.77, F1-Score = 0.78
+Evaluation Results: Accuracy = 0.77, Recall = 0.71, F1-Score = 0.72
+
+Ewalucja modelu lasu losowego po przetworzeniu danych:
+Evaluation Results: Accuracy = 0.88, Recall = 0.88, F1-Score = 0.88
+Evaluation Results: Accuracy = 0.88, Recall = 0.87, F1-Score = 0.88
+Evaluation Results: Accuracy = 0.84, Recall = 0.84, F1-Score = 0.84
+Evaluation Results: Accuracy = 0.86, Recall = 0.86, F1-Score = 0.86
+Evaluation Results: Accuracy = 0.90, Recall = 0.90, F1-Score = 0.90
+Evaluation Results: Accuracy = 0.87, Recall = 0.87, F1-Score = 0.87
+
+
