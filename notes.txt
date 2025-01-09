@@ -13,3 +13,12 @@ co przewidzi jeden i z jakim prawdopodobienstwem a co drugi i jakos znormalizowa
 
 ankieta bez logowania
 dane medyczne po
+
+
+
+profile uzytkownikow
+dodatkowy zbior danych + czytanie badan z pdf
+uczyc model z brakujacymi danymi
+
+
+
