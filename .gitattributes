@@ -1,1 +1,2 @@
-*.pkl filter=lfs diff=lfs merge=lfs -text
+models/survey_model/RF_model.pkl filter=lfs diff=lfs merge=lfs -text
+models/survey_model/processed_data.pkl filter=lfs diff=lfs merge=lfs -text
