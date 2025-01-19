@@ -1,5 +1,6 @@
 import pickle
 
+
 class Predict:
     def __init__(self, model_type, input_data):
         self.model_type = model_type
@@ -30,7 +31,12 @@ class Predict:
         try:
             if len(self.input_data) != self.expected_input_length:
                 raise ValueError(f"Input data must contain exactly {self.expected_input_length} elements")
-            prediction = self.model.predict([self.input_data])
-            return int(prediction[0])
+
+            probabilities = self.model.predict_proba([self.input_data])[0]
+            probability_of_positive = probabilities[1]
+            return probability_of_positive * 100
+        except AttributeError:
+            raise AttributeError(
+                "The loaded model does not support probability predictions. Ensure the model has a predict_proba method.")
         except Exception as e:
             raise Exception(f"An error occurred during prediction: {e}")

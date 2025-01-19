@@ -86,7 +86,7 @@ Process finished with exit code 0
 
 
 """
-"""
+
 # Ścieżka do modelu i danych
 model_path = 'RF_model.pkl'
 data_path = 'df_binary_reduced.pkl'
@@ -120,7 +120,7 @@ X_test, y_test = load_data(data_path, target_column)
 
 # Ocena modelu
 evaluate_model(model, X_test, y_test)
-"""
+
 
 """
 
